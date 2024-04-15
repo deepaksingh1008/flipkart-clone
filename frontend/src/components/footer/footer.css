@@ -1,0 +1,73 @@
+/* #222324 */
+.footer {
+  background-color: #222324;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+.information {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.information h4 {
+  color: rgb(118, 112, 112);
+}
+
+#num {
+  color: rgb(57, 57, 240);
+}
+
+.help-center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid white;
+  margin-top: 10px;
+  justify-content: space-between;
+  padding: 5px;
+}
+.gift-card {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.help-c {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.Copyright {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+.debit-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.debit-card div {
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+  gap: 5px;
+}
+.debit-card div svg {
+  width: 30px;
+  height: 30px;
+}

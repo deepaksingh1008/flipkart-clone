@@ -1,0 +1,102 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  padding: 2px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.logo {
+  margin: 0px 10px 0px 7%;
+}
+.logo img {
+  width: 100px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.search {
+  flex-grow: 1;
+  padding: 10px 5px 5px 10px;
+}
+.search input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  background-color: #bddffa;
+  border-radius: 5px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px 0px 5px;
+  gap: 10px;
+  padding: 4px;
+}
+.profile svg {
+  width: 30px;
+  height: 30px;
+}
+.profile span {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.profile span:hover {
+}
+#arrow {
+  transition: all 0.3s ease-in-out;
+}
+#arrow:hover {
+  transform: rotate(180deg);
+}
+.cart {
+  position: relative;
+}
+.cart svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.seller svg {
+  width: 30px;
+  height: 30px;
+}
+
+.service {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.service span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin: 3px;
+  border-radius: 50%;
+  background-color: rgb(112, 105, 105);
+  cursor: pointer;
+}
+
+svg {
+  cursor: pointer;
+}
+
+#Cart-value {
+  position: relative;
+  top: -18px;
+  left: -7px;
+  color: white;
+  background: red;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  cursor: pointer;
+}

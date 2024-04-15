@@ -1,0 +1,137 @@
+.related-product {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+.related-col-1 {
+  width: 20%;
+  margin: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 5px;
+}
+.related-col-2 {
+  width: 80%;
+  margin: 10px 10px 10px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 5px;
+}
+
+.filter {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.filter hr {
+  opacity: 0.2;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+
+.price div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+.product {
+  display: flex;
+  flex-wrap: wrap;
+}
+.p-card {
+  width: 20%;
+}
+.p-img {
+  width: 100%;
+  /* margin: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p-img img {
+  width: 150px;
+  height: 300px;
+  z-index: -1;
+}
+
+.p-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.p-title {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+}
+.p-t {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.p-size {
+  font-size: 1.1rem;
+  color: rgb(139, 131, 131);
+  margin: 2px;
+}
+.p-rating {
+  display: flex;
+  align-items: center;
+  margin: 2px;
+  gap: 5px;
+  font-size: 1.2rem;
+  color: rgb(139, 131, 131);
+  font-weight: 600;
+}
+.p-rating span {
+  background-color: rgb(74, 201, 70);
+  color: aliceblue;
+  display: inline-block;
+  font-size: 1.1rem;
+  padding: 3px 20px 3px 20px;
+  border-radius: 5px;
+}
+
+.p-price {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.p-price-1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.p-dis {
+  font-size: 1.25rem;
+  color: rgb(139, 131, 131);
+  text-decoration: line-through;
+}
+.p-off {
+  font-size: 1.2rem;
+  color: green;
+  font-weight: 600;
+}
+.p-fav {
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+  width: 50px;
+  float: right;
+  height: 50px;
+  align-items: center;
+  border-radius: 50%;
+  margin: 4px;
+  /* background-color: green; */
+}
+.p-fav svg {
+  height: 30px;
+  width: 30px;
+}
+@media only screen and (max-width: 600px) {
+  .p-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body {
+  font-family: "Roboto", sans-serif;
+}
+.dashboard {
+  width: 100%;
+  display: flex;
+}
+.a-sidebar {
+  width: 30%;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.a-sidebar a {
+  padding: 10px;
+  transition: border 1s linear;
+}
+.a-sidebar a:hover {
+  border-bottom: 3px solid red;
+  background: rgb(114, 231, 11);
+  color: white;
+}
+
+.a-sidebar a:active {
+  background-color: rgb(191, 187, 187);
+}
+
+.a-section {
+  width: 70%;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.create-p {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.a-btn {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1;
+  background-color: rgb(255, 251, 14);
+  color: black;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition: all 1s ease;
+}
+
+.a-btn:hover {
+  background-color: rgb(226, 69, 25);
+  color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(230, 42, 9);
+}
+
+.add-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  gap: 20px;
+  padding: 10px;
+}
+.add-product input,
+button {
+  padding: 10px;
+  border-radius: 5px;
+  width: 60%;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.add-product button {
+  cursor: pointer;
+  color: aliceblue;
+  width: 50% !important;
+  background-color: rgb(16, 126, 216);
+  transition: all 1s ease;
+}
+
+.add-product button:hover {
+  background-color: green;
+  color: black;
+  width: 60% !important;
+}
+
+.add-product textarea {
+  padding: 10px;
+  border-radius: 5px;
+  width: 60%;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.add-product select {
+  padding: 10px;
+  border-radius: 5px;
+  width: 60%;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.add-product select option {
+  padding: 10px;
+  border-radius: 5px;
+  width: 60%;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+/* table */
+.tab {
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+}
+.a-section h1 {
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.a-section table {
+  width: 100%;
+  table-layout: fixed;
+}
+.tbl-header {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.tbl-content {
+  height: 300px;
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #fff;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+/* demo styles */
+
+a-section section {
+  margin: 50px;
+}
+
+/* follow me template */
+.made-with-love {
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}
+.made-with-love i {
+  font-style: normal;
+  color: #f50057;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.made-with-love a {
+  color: #fff;
+  text-decoration: none;
+}
+.made-with-love a:hover {
+  text-decoration: underline;
+}
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
