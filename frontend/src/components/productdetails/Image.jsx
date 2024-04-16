@@ -1,11 +1,11 @@
 import React from 'react'
 import { IoCartOutline } from "react-icons/io5";
 import { SlEnergy } from "react-icons/sl";
-const Image = () => {
+const Image = ({ product }) => {
     return (
         <>
             <div className="pd-image">
-                <img src="https://rukminim2.flixcart.com/image/312/312/xif0q/dslr-camera/i/o/c/eos-r100-24-1-eos-r100-kit-canon-original-imagqeydhsxgacxp.jpeg?q=70" alt="" />
+                <img src={`http://localhost:5000/api/v1/get-photo/${product._id}`} alt="product-image" />
             </div>
             <div className="pd-button">
                 <button className='add-cart-btn'><IoCartOutline />ADD TO CARD</button>

@@ -6,7 +6,6 @@ import Footer from './components/footer/Footer'
 import Carousel from './components/carousel/Carousel'
 import Hero from './components/hero/Hero'
 import RelatedProduct from './components/reletedproduct/RelatedProduct'
-import ProductDetail from './components/productdetails/ProductDetail'
 import ProductDetails from './components/productdetails/ProductDetails'
 import Cart from './components/cart/Cart'
 import Registation from './registeration/Registation'
@@ -32,6 +31,8 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<Hero />} />
           <Route path='/home' element={<h1>home page</h1>} />
+          <Route path='/product-details/:id' element={<ProductDetails />} />
+          <Route path='/related-product/:slug' element={<RelatedProduct />} />
         </Route>
         <Route element={<AdminPrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />

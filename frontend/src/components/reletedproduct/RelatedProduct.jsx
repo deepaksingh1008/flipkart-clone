@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './related.css';
 import Filter from './Filter';
 import Products from './Products';
+
 const RelatedProduct = () => {
+
     return (
         <div className='related-product'>
             <div className="related-col-1">

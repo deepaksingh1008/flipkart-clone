@@ -145,7 +145,7 @@ const Header = () => {
         <>
             <div className="header">
                 <div className='logo'>
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="logo-image" onClick={() => navigate('/')} />
                 </div>
                 {data ? <><div className='search'>
                     <input type="text" placeholder='Search for Products,Brands...' />

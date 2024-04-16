@@ -29,6 +29,7 @@ const AppConstant = {
       SEARCH_PRODUCT: "/searchProduct",
       GET_SINGLE_PRODUCT: "/productDetails/:id",
       GET_PHOTO: "/get-photo/:pid",
+      GET_PRODUCT: "/get-product/:slug",
     },
     CATEGORY: {
       ADD_CATEGORY: "/addCategory",

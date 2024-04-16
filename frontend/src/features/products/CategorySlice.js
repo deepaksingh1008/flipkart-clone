@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const auth = localStorage.getItem("user");
-const token = JSON.parse(auth).token;
+const token = auth && JSON.parse(auth).token;
+
 export const getAllCategory = createAsyncThunk(
   "category/getAll",
   async (item, { rejectWithValue }) => {

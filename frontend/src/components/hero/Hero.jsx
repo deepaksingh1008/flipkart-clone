@@ -11,7 +11,7 @@ import Suggest from './Suggest'
 import GoodPrice from './GoodPrice'
 import Like from './Like'
 import Furniture from './Furniture'
-import ElectronicGadgets from './ElectronicGadgets'
+import ElectronicGadgets from './ElectronicGadgets';
 import SuperHitDeal from './SuperHitDeal'
 const Hero = () => {
     return (

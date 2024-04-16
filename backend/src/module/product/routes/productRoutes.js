@@ -40,8 +40,11 @@ productRouter.get(
 productRouter.get(
   AppConstant.ROUTES.PRODUCT.GET_SINGLE_PRODUCT,
   requireSignIn,
-  isAdmin,
   productControllers.getSingleProduct
+);
+productRouter.get(
+  AppConstant.ROUTES.PRODUCT.GET_PRODUCT,
+  productControllers.getSingleProductBySlug
 );
 
 export default productRouter;

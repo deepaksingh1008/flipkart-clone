@@ -1,5 +1,6 @@
 import productModel from "../model/productModel.js";
 import AppConstant from "../../../shared/utils/AppConstant.js";
+import { CategoryModel } from "../model/CategoryModel.js";
 import slugify from "slugify";
 import fs from "fs";
 const ST = AppConstant.STATUS_CODE;
@@ -167,6 +168,24 @@ export const productControllers = {
       return res
         .status(ST.RESOURCE_NOT_FOUND)
         .send({ success: false, message: "error in delete product" });
+    }
+  },
+  async getSingleProductBySlug(req, res) {
+    try {
+      const cat = await CategoryModel.findOne({ slug: req.params.slug });
+      const product = await productModel
+        .find({ category: cat._id })
+        .select("-imageUrl")
+        .populate("category");
+      return res.status(ST.SUCCESS).send({
+        success: true,
+        message: "fetch single product successfully",
+        item: product,
+      });
+    } catch (error) {
+      return res
+        .status(AppConstant.STATUS_CODE.SERVER_ERROR)
+        .send({ success: false, message: "error in getting single Product" });
     }
   },
 };
