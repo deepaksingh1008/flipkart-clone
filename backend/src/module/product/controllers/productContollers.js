@@ -1,10 +1,148 @@
 import productModel from "../model/productModel.js";
 import AppConstant from "../../../shared/utils/AppConstant.js";
 import { CategoryModel } from "../model/CategoryModel.js";
+import orderModel from "../model/OrderModel.js";
 import slugify from "slugify";
 import fs from "fs";
+import braintree from "braintree";
+import dotenv from "dotenv";
+dotenv.config();
+import { STATUS_CODES } from "http";
+
 const ST = AppConstant.STATUS_CODE;
+var gateway = new braintree.BraintreeGateway({
+  environment: braintree.Environment.Sandbox,
+  merchantId: process.env.BRAINTREE_MERCHENT_ID,
+  publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+  privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+});
 export const productControllers = {
+  //payment gateway token
+  async brainTreeTokenController(req, res) {
+    try {
+      gateway.clientToken.generate({}, function (err, response) {
+        if (err) {
+          res
+            .status(AppConstant.STATUS_CODE.SERVER_ERROR)
+            .send({ success: false, message: err });
+        } else {
+          res.send(response);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  //payment
+  async brainTreePaymentController(req, res) {
+    try {
+      const { cart, nonce } = req.body;
+      let total = 0;
+      cart.map((i) => {
+        total += i.price;
+      });
+      // console.log(total, cart);
+      let newTransaction = gateway.transaction.sale(
+        {
+          amount: total,
+          paymentMethodNonce: nonce,
+          options: {
+            submitForSettlement: true,
+          },
+        },
+        async function (err, result) {
+          if (result) {
+            const order = await new orderModel({
+              products: cart,
+              payment: result,
+              buyer: req.user._id,
+            }).save();
+            res.json({ ok: true });
+          } else {
+            console.log("error->", err);
+            res
+              .status(AppConstant.STATUS_CODE.SERVER_ERROR)
+              .send({ success: false, message: err });
+          }
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async getOrder(req, res) {
+    try {
+      const order = await orderModel
+        .find({ buyer: req.user._id })
+        .populate("products", "-imageUrl")
+        .populate("buyer", "name");
+      if (!order) {
+        return res.status(AppConstant.STATUS_CODE.RESOURCE_NOT_FOUND).send({
+          success: false,
+          message: "No orders found for this user",
+        });
+      }
+
+      res.status(AppConstant.STATUS_CODE.SUCCESS).send({
+        success: true,
+        message: "Fetching orders successfully",
+        orders: order,
+      });
+    } catch (error) {
+      // console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "error in order route",
+        error: error,
+      });
+    }
+  },
+  //get all order
+  async getAllOrders(req, res) {
+    try {
+      const order = await orderModel
+        .find({})
+        .populate("products", "-imageUrl")
+        .populate("buyer", "name")
+        .sort({ createAt: -1 });
+      // if (!order) {
+      //   return res.status(AppConstant.STATUS_CODE.RESOURCE_NOT_FOUND).send({
+      //     success: false,
+      //     message: "No orders found for this user",
+      //   });
+      // }
+
+      res.status(AppConstant.STATUS_CODE.SUCCESS).send({
+        success: true,
+        message: "Fetching orders successfully",
+        orders: order,
+      });
+    } catch (error) {
+      console.log(error);
+      res
+        .status(AppConstant.STATUS_CODE.SERVER_ERROR)
+        .send({ success: false, message: "Error in getting all Order", error });
+    }
+  },
+  //order status update
+  async updateOrderStatus(req, res) {
+    try {
+      const { orderId } = req.params;
+      const { status } = req.body;
+      const orders = await orderModel.findByIdAndUpdate(
+        orderId,
+        { status },
+        { new: true }
+      );
+      res
+        .status(AppConstant.STATUS_CODE.SUCCESS)
+        .send({ success: true, message: "status update successfully", orders });
+    } catch (error) {
+      res
+        .status(AppConstant.STATUS_CODE.SERVER_ERROR)
+        .send({ success: false, message: "Server Error", error });
+    }
+  },
   //create product
   async createProduct(req, res) {
     try {
@@ -189,3 +327,5 @@ export const productControllers = {
     }
   },
 };
+
+// payment gateway

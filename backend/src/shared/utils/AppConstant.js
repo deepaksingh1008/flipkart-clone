@@ -4,6 +4,7 @@ const AppConstant = {
     PRODUCT_SCHEMA: "products",
     ORDER_SCHEMA: "orders",
     CATEGORY_SCHEMA: "categories",
+    CART_SCHEMA: "carts",
   },
   STATUS_CODE: {
     SUCCESS: 200,
@@ -37,6 +38,11 @@ const AppConstant = {
       GET_SINGLE_CATEGORY: "/get-single-category/:slug",
       DELETE_CATEGORY: "/deleteCategory/:id",
       UPDATE_CATEGORY: "/updateCategory/:id",
+    },
+    CART: {
+      ADD_TO_CART: "/addToCart",
+      GET_ALL_ITEM: "/getAllItemsInCart",
+      REMOVE_FROM_CART: "/removeFromCart",
     },
     ORDER: {},
   },

@@ -11,6 +11,7 @@ const Sidebar = () => {
                 <Link to={'/all-category'}>All Category</Link>
                 <Link to={'/update-product'}>Update Product</Link>
                 <Link to={'/update-category'}>Update Category</Link>
+                <Link to={'/get-all-order'}>All Order</Link>
             </div>
 
         </>

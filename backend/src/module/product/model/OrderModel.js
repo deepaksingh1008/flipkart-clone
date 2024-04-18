@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import AppConstant from "../../../shared/utils/AppConstant";
+import AppConstant from "../../../shared/utils/AppConstant.js";
 // const orderSchema = new mongoose.Schema({
 //   shippingInfo: {
 //     address: {
@@ -94,7 +94,7 @@ const orderSchema = new mongoose.Schema(
     products: [
       {
         type: mongoose.ObjectId,
-        ref: "Products",
+        ref: "products",
       },
     ],
     payment: {},
@@ -105,7 +105,7 @@ const orderSchema = new mongoose.Schema(
     status: {
       type: String,
       default: "Not Process",
-      enum: ["Not Process", "Processing", "Shipped", "deliverd", "cancel"],
+      enum: ["Not Process", "Processing", "Shipped", "delivered", "cancel"],
     },
   },
   { timestamps: true }

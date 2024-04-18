@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/runtime": "^7.24.4",
     "@reduxjs/toolkit": "^2.2.2",
     "axios": "^1.6.7",
     "braintree-web-drop-in-react": "^1.2.1",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",

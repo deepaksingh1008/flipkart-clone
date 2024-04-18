@@ -46,5 +46,29 @@ productRouter.get(
   AppConstant.ROUTES.PRODUCT.GET_PRODUCT,
   productControllers.getSingleProductBySlug
 );
-
+//payment route token
+productRouter.get(
+  "/braintree/token",
+  productControllers.brainTreeTokenController
+);
+//payment
+productRouter.post(
+  "/braintree/payment",
+  requireSignIn,
+  productControllers.brainTreePaymentController
+);
+productRouter.get("/order", requireSignIn, productControllers.getOrder);
+//all order
+productRouter.get(
+  "/all-order",
+  requireSignIn,
+  isAdmin,
+  productControllers.getAllOrders
+);
+productRouter.put(
+  "/update-order/:orderId",
+  requireSignIn,
+  isAdmin,
+  productControllers.updateOrderStatus
+);
 export default productRouter;

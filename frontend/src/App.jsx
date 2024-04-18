@@ -22,6 +22,8 @@ import GetAllProduct from './admin/GetAllProduct';
 import UpdateCategory from './admin/UpdateCategory';
 import UpdateProduct from './admin/UpdateProduct';
 import GetAllUser from './admin/GetAllUser'
+import Order from './components/order/Order'
+import AllOrder from './admin/AllOrder'
 function App() {
 
   return (
@@ -33,6 +35,9 @@ function App() {
           <Route path='/home' element={<h1>home page</h1>} />
           <Route path='/product-details/:id' element={<ProductDetails />} />
           <Route path='/related-product/:slug' element={<RelatedProduct />} />
+          <Route path='/all-category' element={<GetAllCategory />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/order' element={<Order />} />
         </Route>
         <Route element={<AdminPrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />
@@ -40,10 +45,9 @@ function App() {
           <Route path='/create-category' element={<CreateCategory />} />
           <Route path='/all-user' element={<GetAllUser />} />
           <Route path='/all-product' element={<GetAllProduct />} />
-          <Route path='/all-category' element={<GetAllCategory />} />
           <Route path='/update-product/:id' element={<UpdateProduct />} />
           <Route path='/update-category/:slug/:id' element={<UpdateCategory />} />
-
+          <Route path='/get-all-order' element={<AllOrder />} />
         </Route>
         <Route path='/register' element={<Registation />} />
         <Route path='/login' element={<Login />} />

@@ -15,6 +15,7 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { checkLogin, logout } from '../../features/auth/authSlice';
+import { getLength } from '../../features/cart/cartSlice';
 // const Header = () => {
 //     const [profile, setProfile] = useState({});
 //     const { items } = useSelector(state => state.user);
@@ -127,7 +128,8 @@ const Header = () => {
     const dispatch = useDispatch();
     let data = localStorage.getItem('user');
     data = JSON.parse(data);
-    console.log("Data=>", data);
+    const { length } = useSelector(state => state.cart);
+    // console.log("Data=>", data);
     // const { items } = useSelector(state => state.user);
     // const { data } = useSelector(state => state.user);
     const handleLogout = (e) => {
@@ -140,6 +142,9 @@ const Header = () => {
             navigate('/dashboard');
         }
     }
+    useEffect(() => {
+        dispatch(getLength());
+    }, [length, dispatch])
 
     return (
         <>
@@ -156,7 +161,7 @@ const Header = () => {
                         <span id='arrow'>^</span>
                     </div>
                     <div className='cart'>
-                        <BsCart3 /><span id='Cart-value'>0</span>
+                        <BsCart3 onClick={() => navigate('/cart')} /><span id='Cart-value'>{length ? `${length}` : null}</span>
                     </div>
                     <div className='seller'>
                         <GoGift />

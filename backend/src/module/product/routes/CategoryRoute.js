@@ -16,7 +16,6 @@ categoryRouter.post(
 categoryRouter.get(
   AppConstant.ROUTES.CATEGORY.GET_ALL_CATEGORIES,
   requireSignIn,
-  isAdmin,
   categoryControllers.getAllCategory
 );
 categoryRouter.put(
